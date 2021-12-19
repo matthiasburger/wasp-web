@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Record} from '../../interfaces/api-dto/module/module-response-model';
+import {DataArea, Record} from '../../interfaces/api-dto/module/module-response-model';
 
 @Component({
   selector: 'app-record',
@@ -9,6 +9,7 @@ import {Record} from '../../interfaces/api-dto/module/module-response-model';
 export class RecordComponent implements OnInit {
 
   @Input() record: Record = new Record();
+  @Input() invoking: DataArea = new DataArea();
 
   constructor() {
   }
@@ -20,6 +21,7 @@ export class RecordComponent implements OnInit {
     console.log(value);
 
     console.log(this.record);
+    console.log(this.invoking);
 
     this.record.save();
   }

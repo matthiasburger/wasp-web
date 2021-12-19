@@ -4,6 +4,8 @@ export class ModuleResponseModel{
 
 export class DataArea{
   records: Record[] = [];
+
+  dataAreaInfo: DataAreaInfo = new DataAreaInfo();
 }
 
 export class Record {
@@ -15,8 +17,24 @@ export class Record {
   }
 }
 
+export class DataAreaInfo{
+  id: string | null = null;
+  name: string | null = null;
+  dataTableId: string | null = null;
+  moduleId: string | null = null;
+}
+
+export class DataItemInfo{
+  id: string | null = null;
+  dataTableId: string | null = null;
+  name: string | null = null;
+  pythonId: string | null = null;
+}
+
 export class DataField {
   name: string | null = null;
   value: string | null = null;
   ordinal: number | null = null;
+
+  dataItemInfo: DataItemInfo = new DataItemInfo();
 }

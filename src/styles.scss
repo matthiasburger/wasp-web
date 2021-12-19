@@ -3,3 +3,19 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+app-record{
+  display: inline-block;
+  padding-left: 20px;
+}
+
+app-dataarea{
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.datafield {
+  float:left;
+  padding-right: 5px;
+}
+
+
