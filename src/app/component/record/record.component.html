@@ -2,7 +2,7 @@
 
   <div *ngFor="let dataField of record.dataFields">
     <label>{{dataField.name}}</label>
-    <input [value]="dataField.value"/>
+    <input [(ngModel)]="dataField.value" (ngModelChange)="modelChangeFn($event)"/>
   </div>
 </div>
 

@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Record} from '../../models/module/ModuleResponseModel';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Record} from '../../interfaces/api-dto/module/module-response-model';
 
 @Component({
   selector: 'app-record',
@@ -14,5 +14,13 @@ export class RecordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  modelChangeFn(value: any): void {
+    console.log(value);
+
+    console.log(this.record);
+
+    this.record.save();
   }
 }

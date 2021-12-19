@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {ModuleService} from '../../services/module.service';
-import {ModuleResponseModel} from '../../models/module/ModuleResponseModel';
+import {ModuleResponseModel} from '../../interfaces/api-dto/module/module-response-model';
 
 @Component({
   selector: 'app-home',

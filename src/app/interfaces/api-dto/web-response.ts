@@ -1,4 +1,3 @@
-// src/app/interfaces/audio-file.ts
 export interface WebResponse<T> {
     data: Data<T>;
     error: Error;

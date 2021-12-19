@@ -9,6 +9,10 @@ export class DataArea{
 export class Record {
   dataAreas: DataArea[] = [];
   dataFields: DataField[] = [];
+
+  save(): void {
+    console.log(this);
+  }
 }
 
 export class DataField {

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DataArea} from '../../models/module/ModuleResponseModel';
+import {DataArea} from '../../interfaces/api-dto/module/module-response-model';
 
 @Component({
   selector: 'app-dataarea',
