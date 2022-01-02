@@ -53,6 +53,7 @@ export abstract class ApiService {
 
     options.headers = this.httpOptions.headers;
 
+    console.log(request.body);
     return this.http.request<TOut>(request.method.toString(), request.url, options);
   }
 

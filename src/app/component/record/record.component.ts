@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DataArea, Record} from '../../interfaces/api-dto/module/module-response-model';
+import {RecordService} from '../../services/record.service';
 
 @Component({
   selector: 'app-record',
@@ -15,6 +16,7 @@ export class RecordComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.record);
   }
 
   modelChangeFn(value: any): void {
@@ -23,6 +25,10 @@ export class RecordComponent implements OnInit {
     console.log(this.record);
     console.log(this.invoking);
 
-    this.record.save();
+    this.record.unsavedChanges = true;
+  }
+
+  save(): void {
+    console.log(this.record);
   }
 }

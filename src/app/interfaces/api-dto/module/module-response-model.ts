@@ -11,9 +11,11 @@ export class DataArea{
 export class Record {
   dataAreas: DataArea[] = [];
   dataFields: DataField[] = [];
+  dataTableId: string | null = null;
+  unsavedChanges: boolean;
 
-  save(): void {
-    console.log(this);
+  constructor() {
+    this.unsavedChanges = false;
   }
 }
 
