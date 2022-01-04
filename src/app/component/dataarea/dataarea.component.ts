@@ -9,37 +9,16 @@ import {RecordService} from '../../services/record.service';
 })
 export class DataareaComponent implements OnInit {
   @Input() dataArea: DataArea = new DataArea();
+  @Input() record: Record | null = null;
 
-  recordService: RecordService;
-  constructor(recordService: RecordService) {
-    this.recordService = recordService;
+  constructor(private recordService: RecordService) {
   }
 
   ngOnInit(): void {
   }
 
-  saveChanges(): void{
-    const records: Record[] = this.dataArea.records.map(x => Object.assign(new Record(), x));
-    for (const record of records){
-      this.save(record);
-    }
-  }
-
-
-  save(record: Record, subRecords: boolean = true): void {
-    if (subRecords) {
-      for (const subArea of record.dataAreas) {
-        for (const subRecord of subArea.records) {
-          this.save(Object.assign(new Record(), subRecord));
-        }
-      }
-    }
-
-    if (record.unsavedChanges)
-    {
-      console.log('had changes!!');
-      this.recordService.save(Object.assign(new Record(), record));
-      record.unsavedChanges = false;
-    }
+  add(): void {
+    const mtsRecord = this.recordService.getRecordForDataArea(this.dataArea.dataAreaInfo, this.record);
+    mtsRecord.subscribe(x => this.dataArea.records.push(x));
   }
 }

@@ -15,6 +15,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import { DataareaComponent } from './component/dataarea/dataarea.component';
 import {RecordComponent} from './component/record/record.component';
+import { ModuleComponent } from './component/module/module.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {RecordComponent} from './component/record/record.component';
     HomeComponent,
     DataareaComponent,
     RecordComponent,
-    RecordComponent
+    RecordComponent,
+    ModuleComponent
   ],
   imports: [
     BrowserModule,

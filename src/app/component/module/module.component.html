@@ -34,11 +34,20 @@
     </perfect-scrollbar>
   </div>
 
-  <app-module></app-module>
+  <p>{{this.moduleId}}</p>
+
+  <button (click)="this.saveChanges()">Änderungen speichern</button>
+
+
+  <div *ngIf="this.result.dataAreas != null">
+
+  <div *ngFor="let dataArea of this.result.dataAreas">
+    <app-dataarea [dataArea]="dataArea"></app-dataarea>
+  </div>
+</div>
 
   <div class="router">
     <router-outlet></router-outlet>
   </div>
 
 </div>
-

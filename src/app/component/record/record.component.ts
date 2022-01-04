@@ -12,23 +12,25 @@ export class RecordComponent implements OnInit {
   @Input() record: Record = new Record();
   @Input() invoking: DataArea = new DataArea();
 
-  constructor() {
+  constructor(private recordService: RecordService) {
   }
 
   ngOnInit(): void {
-    console.log(this.record);
   }
 
   modelChangeFn(value: any): void {
-    console.log(value);
-
-    console.log(this.record);
-    console.log(this.invoking);
-
     this.record.unsavedChanges = true;
+
+    console.log(this.record.dataFields.filter(x => x.dataItemInfo.required && x.value == null).length + ' required columns are still null');
+
+    if (this.record.newRecord && this.record.dataFields.filter(x => x.dataItemInfo.required && x.value == null).length === 0){
+      this.recordService.saveRecord(Object.assign(new Record(), this.record));
+      this.record.unsavedChanges = true;
+      this.record.newRecord = false;
+    }
   }
 
   save(): void {
-    console.log(this.record);
+    this.recordService.saveRecord(Object.assign(new Record(), this.record));
   }
 }

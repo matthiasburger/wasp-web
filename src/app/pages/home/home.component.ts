@@ -10,20 +10,11 @@ import {ModuleResponseModel} from '../../interfaces/api-dto/module/module-respon
 })
 export class HomeComponent implements OnInit {
   showSideNavigation = true;
-  result: ModuleResponseModel = new ModuleResponseModel();
 
-  constructor(private authService: AuthService, private moduleService: ModuleService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.authService.stayLoggedIn().subscribe();
-
-    this.moduleService.open('demo').subscribe(
-      response => {
-        this.result = response;
-        console.log(this.result);
-      },
-      error => console.error(error)
-    );
   }
 
 }
