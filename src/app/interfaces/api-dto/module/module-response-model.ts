@@ -3,22 +3,26 @@ export class ModuleResponseModel{
 }
 
 export class DataArea{
-  records: Record[] = [];
+  constructor(){
+    this.append = false;
+  }
 
+  records: Record[] = [];
+  append: boolean;
   dataAreaInfo: DataAreaInfo = new DataAreaInfo();
 }
 
 export class Record {
+  constructor() {
+    this.unsavedChanges = false;
+    this.newRecord = false;
+  }
+
   dataAreas: DataArea[] = [];
   dataFields: DataField[] = [];
   dataTableId: string | null = null;
   unsavedChanges: boolean;
   newRecord: boolean;
-
-  constructor() {
-    this.unsavedChanges = false;
-    this.newRecord = false;
-  }
 }
 
 export class DataAreaInfo{
