@@ -5,4 +5,5 @@
     <app-record [record]="record" [invoking]="dataArea"></app-record>
 
   </div>
-</div><button (click)="this.add()">+</button>
+</div>
+<button *ngIf="this.dataArea.append" (click)="this.add()">add {{this.dataArea.dataAreaInfo.name}}</button>

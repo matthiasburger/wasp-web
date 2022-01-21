@@ -23,7 +23,7 @@ export class RecordComponent implements OnInit {
 
     console.log(this.record.dataFields.filter(x => x.dataItemInfo.required && x.value == null).length + ' required columns are still null');
 
-    if (this.record.newRecord && this.record.dataFields.filter(x => x.dataItemInfo.required && x.value == null).length === 0){
+    if (this.record.newRecord && this.record.dataFields.filter(x => x.dataItemInfo.required && (x.value == null || x.value === '')).length === 0){
       this.recordService.saveRecord(Object.assign(new Record(), this.record));
       this.record.unsavedChanges = true;
       this.record.newRecord = false;
